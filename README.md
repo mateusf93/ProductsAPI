@@ -1,4 +1,4 @@
-# ProductsAPI
+# SalesAPI
 
 Primeira API desenvolvida utilizando TypeScript, express e typeorm com o intuito apenas de servir como treinamento.
 Inicialmente está sendo possível apenas cadastrar usuários, produtos e categorias dos produtos.
