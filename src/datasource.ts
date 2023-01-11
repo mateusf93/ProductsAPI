@@ -4,6 +4,10 @@ import { DataSource} from 'typeorm'
 import { Products } from './entity/entityProduct'
 import { Category } from './entity/entityCategory'
 import { User } from './entity/entityUser'
+import { Order } from './entity/entityOrders'
+import { Itens } from './entity/entityItens'
+import { Costumers} from './entity/entityCostumers'
+import {default1673301185919} from './migrations/1673301185919-default'
 
 const port = process.env.DB_PORT as number | undefined
 
@@ -15,7 +19,8 @@ export const AppDataSource = new DataSource({
     password:process.env.DB_PASS,
     subscribers: [], 
     database:process.env.DB_NAME,
-    entities: [Products,User,Category],
-	migrations: ['./migrations/*.{ts,js}'],
+    migrationsRun:true,
+    entities: [Products,User,Category, Order, Itens,Costumers],
+	migrations: [default1673301185919],
 
 })

@@ -54,14 +54,14 @@ export class UserController{
     }
     static async listAllUser(req:Request, res:Response){
         try{
-            const listOfUser: Object[] = await userServices.listAll()
+            const listOfUser = await userServices.listAll()
             return res.status(200).send(listOfUser)
         }catch(error){
             res.status(404).send(error)
         }
     }
     static async listUserById(req:Request, res:Response){
-            const id:Object = req.params.id
+            const id= req.params.id
         try{const userById = await userServices.listById({id})
             return res.status(200).send(userById)
         }catch(error){
@@ -69,8 +69,8 @@ export class UserController{
         }
     }
     static async updateUser(req:Request, res:Response){
-        const id : Object= req.params.id
-        const newInfo : ObjectLiteral = req.body
+        const id = req.params.id
+        const newInfo = req.body
         try{
             const ProductUpdate = await userServices.listById({id})
             await userServices.updateData(ProductUpdate, newInfo)
@@ -81,7 +81,7 @@ export class UserController{
         }
     }
     static async deleteUser(req:Request, res:Response){
-        const id: Object= req.params.id
+        const id= req.params.id
         try{
             await userServices.deleteData(id)
             res.status(200).send("Usuário deletado com sucesso")
@@ -90,9 +90,9 @@ export class UserController{
         }
     }
     static async getEmailById(req:Request, res:Response){
-        const id:Object = req.params.id
+        const id = req.params.id
         try{
-           const email: Object =  await userServices.getEmailById(id)
+           const email =  await userServices.getEmailById(id)
            return res.status(200).send(email)
         }catch(error){
             res.status(404)

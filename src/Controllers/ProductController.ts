@@ -6,9 +6,9 @@ const productService = new ProductServices()
 export class ProductController{
 
     static async createProduct(req:Request, res:Response){
-        const newProduct : Object[] = req.body
+        const newProduct = req.body
         try{
-            const createdProduct : Object[] = await productService.insertData(newProduct)
+            const createdProduct = await productService.insertData(newProduct)
             return res.status(201).json(createdProduct)
         }catch(error){
             console.log(error)
@@ -18,7 +18,7 @@ export class ProductController{
     
     static async listProducts(req:Request, res:Response){
         try{
-            const allProducts : Object[] = await productService.listAllProducts()
+            const allProducts = await productService.listAllProducts()
             return res.status(200).send(allProducts)
             }catch(error){
             res.status(500).send(error)
@@ -28,8 +28,8 @@ export class ProductController{
     static async listProductsById(req:Request, res:Response){
         
         try{
-            const {id} : ObjectLiteral = req.params
-            const ProductById : Object[] = await productService.listProductId(id)
+            const {id}  = req.params
+            const ProductById  = await productService.listProductId(id)
         return res.status(200).send(ProductById)
         }catch(error){
             res.status(404).send(error)
@@ -37,8 +37,8 @@ export class ProductController{
     }
 
     static async updateProduct(req:Request, res:Response){
-        const id : Object= req.params.id
-        const newInfo : ObjectLiteral = req.body
+        const id = req.params.id
+        const newInfo  = req.body
         try{
             const ProductUpdate = await productService.listById({id})
             await productService.updateData(ProductUpdate, newInfo)
@@ -50,7 +50,7 @@ export class ProductController{
     }
 
     static async deleteProduct(req:Request, res:Response){
-        const productId : String = req.params.id
+        const productId = req.params.id
         try{
             await productService.deleteData(productId)
             return res.status(200).send("Produto deletado com sucesso")
@@ -61,8 +61,8 @@ export class ProductController{
 
     static async productCategory(req:Request, res:Response){
         try{
-            const id : String = req.params.id
-            const listCategorysProducts : ObjectLiteral[] = await productService.categoryProducts(id)
+            const id  = req.params.id
+            const listCategorysProducts  = await productService.categoryProducts(id)
   
             return res.send(listCategorysProducts)
         }catch(error){
