@@ -13,10 +13,10 @@ export class Services{
     async listById(where = {}){
         return AppDataSource.getRepository(this.entidade).findOneBy({...where})
     }
-    async insertData(data:ObjectLiteral[]){
+    async insertData(data:any){
         return AppDataSource.getRepository(this.entidade).save(data)
     }
-    async updateData(data:ObjectLiteral[], newdata:ObjectLiteral[]){
+    async updateData(data:any, newdata:any){
         return AppDataSource.getRepository(this.entidade).update(data,newdata)
         }
     async deleteData(id :unknown){

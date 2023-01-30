@@ -1,10 +1,10 @@
 import { ProductController } from "../Controllers/ProductController"
 import express from "express"
-
+import { authJWT } from "../middlewares/auth"
 const router = express.Router()
 
 router
-    .get('/products', ProductController.listProducts)
+    .get('/products',authJWT, ProductController.listProducts)
     .get("/products/:id", ProductController.listProductsById)
     .get("/products/categorys/:id", ProductController.productCategory)
     .put("/products/:id", ProductController.updateProduct)

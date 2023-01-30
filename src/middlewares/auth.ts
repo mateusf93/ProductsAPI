@@ -7,7 +7,7 @@ const userServices = new UserServices()
 type JwtPayload = {
     id:number
 }
-export const authMiddleware = async (
+export const authJWT = async (
 	req: Request,
 	res: Response,
 	next: NextFunction
@@ -25,12 +25,10 @@ export const authMiddleware = async (
 	const user = await userServices.listById({id})
 
 	if (!user) {
-		throw new UnauthorizedError('Não autorizado')
+		return res.send('Não autorizado')
 	}
 
-	const { password: _, ...loggedUser } = user
 
-	req.user = loggedUser
 
 	next()
 }

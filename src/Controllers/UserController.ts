@@ -14,9 +14,10 @@ export class UserController{
         const email = req.body.email
         const password = req.body.password
         const active = req.body.active
+        
         try{        
             const check = await userServices.checkEmail(req.body.email)
-            if(check){
+            if(!check){
                 throw error
            }
             const userData = await userServices.createUserSafe(name, email, password, active)
@@ -26,6 +27,7 @@ export class UserController{
         catch(error){
             return res.status(401).send('E-Mail já cadastrado')
         }
+        
     }
     static async login(req:Request, res:Response){
 
