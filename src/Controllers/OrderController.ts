@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { OrderServices } from "../services/OrderServices";
-import { ItemServices } from "../services/ItemServices";
-const itemServices = new ItemServices()
+
 const orderServices = new OrderServices()
 
 export class OrderController{

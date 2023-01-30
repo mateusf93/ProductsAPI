@@ -7,7 +7,7 @@ export class ProductServices extends Services{
         super('Product')
         this.category = new Services('Category')
     }
-    async categoryProducts(id:Object){
+    async categoryProducts(id:unknown){
         return AppDataSource.getRepository(this.entidade).find({
             relations:{
                 category:true,
@@ -21,7 +21,7 @@ export class ProductServices extends Services{
             category:true
         }})
     }
-    async listProductId(id:Object){
+    async listProductId(id:unknown){
         return AppDataSource.getRepository(this.entidade).find({
             relations:{
                 category:true,

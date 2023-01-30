@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, Table } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import { Category } from "./entityCategory";
 import { Itens} from "./entityItens";
 
@@ -14,10 +14,10 @@ export class Products{
     description:string
 
     @Column({type:"float"})
-    unitPrice:Number
+    unitPrice:number
 
     @Column()
-    Measure:String
+    Measure:string
 
     @OneToMany(()=>Itens, (item) => item.product)
     item: Itens[]

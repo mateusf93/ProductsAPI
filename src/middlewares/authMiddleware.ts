@@ -18,7 +18,7 @@ export const authMiddleware = async (
 		throw new UnauthorizedError('Não autorizado')
 	}
 
-	const token = authorization.split(' ')[1]
+	const token : string = authorization.split(' ')[1]
 
 	const { id } = jwt.verify(token, process.env.JWT_PASS ?? '') as JwtPayload
 

@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { error } from "console";
 import { Request, Response } from "express";
-import { ObjectLiteral } from "typeorm";
 import { UserServices } from "../services/UserServices";
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'

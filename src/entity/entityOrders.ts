@@ -14,7 +14,7 @@ export enum StatusOrder{
 @Entity('Orders')
 export class Order{
     @PrimaryGeneratedColumn({name:"orderId"})
-    id:Number
+    id:number
 
     @OneToMany(()=>Itens, (item) => item.order)
     item:Itens[]

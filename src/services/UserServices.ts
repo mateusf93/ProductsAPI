@@ -7,7 +7,7 @@ export class UserServices extends Services{
         super("User")
     }
 
-    async getEmailById(id:Object){
+    async getEmailById(id:unknown){
         return AppDataSource.getRepository(this.entidade).find({
             select:{
                 email:true
@@ -17,7 +17,7 @@ export class UserServices extends Services{
             }
         })
     }
-    async checkEmail(email:String){
+    async checkEmail(email:unknown){
         return AppDataSource.getRepository(this.entidade).findOneBy({email})
          
     }

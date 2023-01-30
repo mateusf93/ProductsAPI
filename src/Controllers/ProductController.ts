@@ -1,5 +1,4 @@
 import { Request,Response } from "express"
-import { ObjectLiteral } from "typeorm"
 import { ProductServices } from "../services/ProductServices"
 
 const productService = new ProductServices()

@@ -14,7 +14,7 @@ export class OrderServices extends Services{
             }
         })
     }
-    async listOrderById(id:Object){
+    async listOrderById(id:unknown){
         return AppDataSource.getRepository(this.entidade).find({relations:
             {
             item:true, 

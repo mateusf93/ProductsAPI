@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Products } from "./entityProduct";
 import { Order } from "./entityOrders";
 
@@ -6,7 +6,7 @@ import { Order } from "./entityOrders";
 export class Itens{
 
     @PrimaryGeneratedColumn({name:"ItemID"})
-    id:Number
+    id:number
 
     @ManyToOne(()=> Products, (product) => product.item)
     product: Products
@@ -15,10 +15,10 @@ export class Itens{
     order:Order
 
     @Column({type:"float"})
-    UnitPrice:Number
+    UnitPrice:number
 
     @Column({type:"float"})
-    Quantity:Number
+    Quantity:number
 
 
 

@@ -55,7 +55,7 @@ export class ItemController{
         const orderID = req.params.orderID
         const itemID = req.params.itemID
         try{
-            const itemById = await itemServices.getRow(Number(orderID),Number(itemID))
+            const itemById  = await itemServices.getRow(Number(orderID),Number(itemID))
             await itemServices.deleteData(itemById)
             res.status(200).send("Item deletado com sucesso")
         }catch(error){

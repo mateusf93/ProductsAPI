@@ -6,16 +6,16 @@ import { Order } from "./entityOrders";
 export class Costumers{
 
     @PrimaryGeneratedColumn({name:"CostumerID"})
-    id:Number
+    id:number
 
     @Column()
-    CostumerName:String
+    CostumerName:string
 
     @OneToMany(()=>Order, (order)=> order.costumer)
     order:Order[]
 
     @Column()
-    adress:String
+    adress:string
 
 
 
